@@ -31,7 +31,6 @@
     <Folder Include="DTOs\" />
     <Folder Include="Controllers\" />
     <Folder Include="Repositories\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
