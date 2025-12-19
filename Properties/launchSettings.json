@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "sistemas_turnos": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
