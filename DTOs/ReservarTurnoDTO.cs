@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace sistemas_turnos.DTOs
 {
-    internal class ReservarTurnoDTO
+    public class ReservarTurnoDTO
     {
         [Required(ErrorMessage = "El usuario es obligatorio")]
         public int UsuarioId { get; set; }
@@ -23,5 +23,8 @@ namespace sistemas_turnos.DTOs
 
         [Required(ErrorMessage = "La hora de inicio es obligatoria")]
         public TimeSpan HoraInicio { get; set; }
+
+        [Required(ErrorMessage = "La hora de fin es obligatoria")]
+        public TimeSpan HoraFin { get; set; }
     }
 }
