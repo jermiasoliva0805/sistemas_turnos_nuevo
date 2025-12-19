@@ -13,6 +13,6 @@ namespace sistemas_turnos.Models
         public string Descripcion { get; set; }
         public int Duracion_Minutos { get; set; }
         public decimal Precio { get; set; }
-
+        public List<Turno> Turnos { get; set; }
     }
 }
