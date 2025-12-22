@@ -23,14 +23,19 @@ public class TurnosController : ControllerBase
     // ✅ Reservar turno
     [HttpPost("reservar")]
     public async Task<IActionResult> Reservar([FromBody] ReservarTurnoDTO dto)
-    {
+    { //este if para convertir los string de dto a timespan
+        if (!TimeSpan.TryParse(dto.HoraInicio, out var inicio) ||
+        !TimeSpan.TryParse(dto.HoraFin, out var fin))
+        {
+            return BadRequest("El formato de hora es inválido. Use 'HH:mm:ss'");
+        }
         var turno = await _turnoService.ReservarTurno(
             dto.UsuarioId,
             dto.EmpleadoId,
             dto.ServicioId,
             dto.Fecha,
-            dto.HoraInicio,
-            dto.HoraFin
+            inicio, // convertir a TimeSpan del dto
+            fin
         );
 
         if (turno == null)
@@ -38,6 +43,7 @@ public class TurnosController : ControllerBase
 
         var turnoResponse = _mapper.Map<TurnoResponceDTO>(turno);
         return Ok(turnoResponse);
+
     }
 
     // ✅ Cancelar turno
