@@ -32,11 +32,12 @@ public class TurnoService
     }
 
     // ✅ Reservar turno
-    public async Task<string> ReservarTurno(int usuarioId, int empleadoId, int servicioId, DateTime fecha, TimeSpan inicio, TimeSpan fin)
+    public async Task<Turno?> ReservarTurno(int usuarioId, int empleadoId, int servicioId, DateTime fecha, TimeSpan inicio, TimeSpan fin)
     {
+        // Si ya está ocupado, devolvemos null
         if (await TieneSolapamiento(empleadoId, fecha, inicio, fin))
         {
-            return "El empleado ya tiene un turno en ese horario.";
+            return null;
         }
 
         var turno = new Turno
@@ -47,14 +48,13 @@ public class TurnoService
             Fecha = fecha,
             Hora_Inicio = inicio,
             Hora_Fin = fin,
-            Estado = "Pendiente",
+            Estado = "pendiente",
             Fecha_Creacion = DateTime.Now
         };
 
         _context.Turnos.Add(turno);
         await _context.SaveChangesAsync();
-
-        return "Turno reservado correctamente.";
+        return turno;
     }
 
     // ✅ Cancelar turno
