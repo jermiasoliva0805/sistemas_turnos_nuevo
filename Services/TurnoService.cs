@@ -47,7 +47,7 @@ public class TurnoService
             Fecha = fecha,
             Hora_Inicio = inicio,
             Hora_Fin = fin,
-            Estado = "Reservado",
+            Estado = "Pendiente",
             Fecha_Creacion = DateTime.Now
         };
 

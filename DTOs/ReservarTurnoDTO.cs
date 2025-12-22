@@ -22,9 +22,9 @@ namespace sistemas_turnos.DTOs
         public DateTime Fecha { get; set; }
 
         [Required(ErrorMessage = "La hora de inicio es obligatoria")]
-        public TimeSpan HoraInicio { get; set; }
+        public string HoraInicio { get; set; }
 
         [Required(ErrorMessage = "La hora de fin es obligatoria")]
-        public TimeSpan HoraFin { get; set; }
+        public string HoraFin { get; set; }
     }
 }
