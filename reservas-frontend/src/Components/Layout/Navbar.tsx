@@ -34,7 +34,7 @@ export const Navbar: React.FC = () => {
                                 </Link>
                             )}
                             <div className="user-info">
-                                <span className="user-name">{user?.nombre_completo}</span>
+                                <span className="user-name">{user?.Nombre_Completo}</span>
                                 <button onClick={handleLogout} className="logout-btn">
                                     Cerrar Sesión
                                 </button>

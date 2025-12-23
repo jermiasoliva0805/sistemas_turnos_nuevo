@@ -1,9 +1,9 @@
 export interface Usuario {
-    id_usuarios: number;
-    nombre_completo: string;
-    email: string;
-    rol: 'admin' | 'cliente';
-    fecha_creacion: string;
+    id_Usuarios: number;
+    Nombre_Completo: string;
+    Email: string;
+    Rol: 'admin' | 'cliente';
+    Fecha_Creacion: string;
 }
 
 export interface LoginRequest {
@@ -12,48 +12,48 @@ export interface LoginRequest {
 }
 
 export interface RegisterRequest {
-    nombreCompleto: string;
-    email: string;
-    password: string;
-    rol?: 'admin' | 'cliente';
+    NombreCompleto: string;
+    Email: string;
+    Password: string;
+    Rol?: 'admin' | 'cliente';
 }
 
 export interface Servicio {
-    id_servicios: number;
-    nombre: string;
-    descripcion: string;
-    duracion_minutos: number;
-    precio: number;
+    Id_Servicios: number;
+    Nombre: string;
+    Descripcion: string;
+    Duracion_Minutos: number;
+    Precio: number;
 }
 
 export interface Empleado {
-    id_empleados: number;
-    nombreCompleto: string;
-    email: string;
-    telefono: string;
+    Id_Empleados: number;
+    NombreCompleto: string;
+    Email: string;
+    Telefono: string;
 }
 
 export interface Turno {
-    id_turno: number;
-    estado: string;
-    fecha: string;
-    horaInicio: string;
-    horaFin: string;
-    fechaCreacion: string;
-    servicioNombre: string;
-    servicioPrecio: number;
-    servicioDuracion: number;
-    empleadoNombre: string;
-    empleadoEmail: string;
-    usuarioNombre: string;
-    usuarioEmail: string;
+    Id_Turno: number;
+    Estado: string;
+    Fecha: string;
+    HoraInicio: string;
+    HoraFin: string;
+    FechaCreacion: string;
+    ServicioNombre: string;
+    ServicioPrecio: number;
+    ServicioDuracion: number;
+    EmpleadoNombre: string;
+    EmpleadoEmail: string;
+    UsuarioNombre: string;
+    UsuarioEmail: string;
 }
 
 export interface ReservarTurnoRequest {
-    usuarioId: number;
-    empleadoId: number;
-    servicioId: number;
-    fecha: string;
-    horaInicio: string;
-    horaFin: string;
+    UsuarioId: number;
+    EmpleadoId: number;
+    ServicioId: number;
+    Fecha: string;
+    HoraInicio: string;
+    HoraFin: string;
 }

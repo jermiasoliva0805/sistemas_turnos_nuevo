@@ -36,9 +36,9 @@ export const Register: React.FC = () => {
 
         try {
             await authApi.register({
-                nombreCompleto: formData.nombreCompleto,
-                email: formData.email,
-                password: formData.password,
+                NombreCompleto: formData.nombreCompleto,
+                Email: formData.email,
+                Password: formData.password,
             });
             navigate('/login');
         } catch (err: any) {
