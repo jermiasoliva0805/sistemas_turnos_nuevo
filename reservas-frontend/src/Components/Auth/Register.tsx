@@ -22,8 +22,33 @@ export const Register: React.FC = () => {
         e.preventDefault();
         setError('');
 
-        if (formData.password !== formData.confirmPassword) {
-            setError('Las contraseñas no coinciden');
+        // Validar que los campos no estén vacíos
+        if (!formData.nombreCompleto.trim()) {
+            setError('El nombre completo es requerido');
+            return;
+        }
+
+        if (!formData.email.trim()) {
+            setError('El email es requerido');
+            return;
+        }
+
+        if (!formData.password) {
+            setError('La contraseña es requerida');
+            return;
+        }
+
+        if (!formData.confirmPassword) {
+            setError('La confirmación de contraseña es requerida');
+            return;
+        }
+
+        // Comparar contraseñas (trim para eliminar espacios)
+        const pass1 = formData.password.trim();
+        const pass2 = formData.confirmPassword.trim();
+        
+        if (pass1 !== pass2) {
+            setError(`Las contraseñas no coinciden. Contraseña 1: "${pass1}" vs Contraseña 2: "${pass2}"`);
             return;
         }
 
@@ -93,6 +118,9 @@ export const Register: React.FC = () => {
                             className="form-input"
                             placeholder="••••••••"
                         />
+                        <small style={{color: '#666', marginTop: '4px', display: 'block'}}>
+                            Mínimo 6 caracteres
+                        </small>
                     </div>
 
                     <div className="form-group">
@@ -106,6 +134,17 @@ export const Register: React.FC = () => {
                             className="form-input"
                             placeholder="••••••••"
                         />
+                        {formData.password && formData.confirmPassword && (
+                            <small style={{
+                                color: formData.password === formData.confirmPassword ? '#28a745' : '#dc3545',
+                                marginTop: '4px',
+                                display: 'block'
+                            }}>
+                                {formData.password === formData.confirmPassword 
+                                    ? '✓ Las contraseñas coinciden' 
+                                    : '✗ Las contraseñas no coinciden'}
+                            </small>
+                        )}
                     </div>
 
                     <button type="submit" disabled={loading} className="btn btn-primary">

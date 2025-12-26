@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace sistemas_turnos.DTOs
 {
-    internal class UsuarioLoginDTO
+    public class UsuarioLoginDTO
     {
         [Required(ErrorMessage = "El email es obligatorio")]
         [EmailAddress(ErrorMessage = "Formato de email inválido")]

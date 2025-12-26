@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace sistemas_turnos.DTOs
 {
-    internal class ServicioDTO
+    public class ServicioDTO
     {
         public int Id_Servicios { get; set; }
 
