@@ -3,6 +3,9 @@ import { AuthProvider, useAuth } from './Context/AuthContext';
 import { Navbar } from './Components/Layout/Navbar';
 import { Login } from './Components/Auth/Login';
 import { Register } from './Components/Auth/Register';
+import { ReservarTurno } from './Components/Turnos/ReservarTurno';
+import { MisTurnos } from './Components/Turnos/MisTurnos';
+import { Dashboard } from './Components/Admin/Dashboard';
 import './App.css';
 
 // Componente para rutas protegidas
@@ -11,11 +14,14 @@ const PrivateRoute: React.FC<{ children: React.ReactElement }> = ({ children }) 
   return isAuthenticated ? children : <Navigate to="/login" />;
 };
 
-// Componente temporal para páginas en construcción
-const ComingSoon: React.FC<{ title: string }> = ({ title }) => (
-  <div className="coming-soon">
-    <h1>{title}</h1>
-    <p>Esta página estará disponible próximamente</p>
+// Componente para la página de inicio
+const Home: React.FC = () => (
+  <div className="container">
+    <div className="card">
+      <h1>Bienvenido</h1>
+      <p>Sistema de Reserva de Turnos</p>
+      <p>Usa el menú superior para navegar y reservar tus turnos.</p>
+    </div>
   </div>
 );
 
@@ -30,7 +36,7 @@ function AppContent() {
           path="/"
           element={
             <PrivateRoute>
-              <ComingSoon title="Inicio" />
+              <Home />
             </PrivateRoute>
           }
         />
@@ -38,7 +44,7 @@ function AppContent() {
           path="/reservar"
           element={
             <PrivateRoute>
-              <ComingSoon title="Reservar Turno" />
+              <ReservarTurno />
             </PrivateRoute>
           }
         />
@@ -46,7 +52,7 @@ function AppContent() {
           path="/mis-turnos"
           element={
             <PrivateRoute>
-              <ComingSoon title="Mis Turnos" />
+              <MisTurnos />
             </PrivateRoute>
           }
         />
@@ -54,7 +60,7 @@ function AppContent() {
           path="/admin"
           element={
             <PrivateRoute>
-              <ComingSoon title="Panel de Administración" />
+              <Dashboard />
             </PrivateRoute>
           }
         />

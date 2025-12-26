@@ -35,7 +35,11 @@ builder.Services.AddScoped<TurnoService>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 // 🔹 Controllers
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = null; // Usar PascalCase
+    });
 
 // 🔹 Swagger
 builder.Services.AddEndpointsApiExplorer();

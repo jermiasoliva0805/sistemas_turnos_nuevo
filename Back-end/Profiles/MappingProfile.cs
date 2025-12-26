@@ -31,6 +31,7 @@ public class MappingProfile : Profile
 
         // 🔹 Servicio ↔ ServicioDto
         CreateMap<Servicio, ServicioDTO>()
+            .ForMember(dest => dest.Id_Servicios, opt => opt.MapFrom(src => src.Id_Servicios))
             .ForMember(dest => dest.Nombre, opt => opt.MapFrom(src => src.Nombre))
             .ForMember(dest => dest.Descripcion, opt => opt.MapFrom(src => src.Descripcion))
             .ForMember(dest => dest.Duracion_Minutos, opt => opt.MapFrom(src => src.Duracion_Minutos))
@@ -39,7 +40,10 @@ public class MappingProfile : Profile
 
         // 🔹 Empleado ↔ EmpleadoDto
         CreateMap<Empleado, EmpleadoDTO>()
+            .ForMember(dest => dest.Id_Empleados, opt => opt.MapFrom(src => src.Id_Empleados))
             .ForMember(dest => dest.NombreCompleto, opt => opt.MapFrom(src => src.Nombre_Completo))
+            .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
+            .ForMember(dest => dest.Telefono, opt => opt.MapFrom(src => src.Telefono))
             .ReverseMap()
             .ForMember(src => src.Nombre_Completo, opt => opt.MapFrom(dest => dest.NombreCompleto));
 
